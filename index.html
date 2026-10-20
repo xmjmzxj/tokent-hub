@@ -135,8 +135,31 @@
   .modal .acts .btn{flex:1;text-align:center}
   .ok-msg{color:var(--green);font-size:14px;margin-top:10px}
 
+  /* API 接入 */
+  .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+  .acc-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .acc-box h4{font-size:15px;margin-bottom:10px}
+  .kv{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:14px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .kv:last-child{border-bottom:none}
+  .kv .k{color:var(--sub);flex-shrink:0}
+  .kv .v{font-family:Consolas,Menlo,monospace;color:var(--accent2);word-break:break-all;text-align:right;display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+  .copy{background:rgba(124,108,255,.16);color:#b9b2ff;border:1px solid rgba(124,108,255,.42);border-radius:6px;padding:2px 9px;font-size:12px;cursor:pointer;white-space:nowrap;font-family:inherit}
+  .copy:hover{background:rgba(124,108,255,.3)}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap}
+  .tab{background:transparent;border:1px solid var(--line);border-bottom:none;color:var(--sub);font-size:13px;padding:8px 14px;border-radius:8px 8px 0 0;cursor:pointer;font-family:inherit}
+  .tab.on{background:#0b0c10;color:var(--txt)}
+  pre.code{background:#0b0c10;border:1px solid var(--line);border-radius:0 10px 10px 10px;padding:16px;font-size:12.5px;line-height:1.7;overflow-x:auto;color:#cfd3de;font-family:Consolas,Menlo,monospace;white-space:pre;margin-top:0}
+  .price-tb{width:100%;border-collapse:collapse;font-size:13.5px}
+  .price-tb th,.price-tb td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line)}
+  .price-tb th{color:var(--dim);font-weight:600;font-size:12px}
+  .price-tb td.mono{font-family:Consolas,Menlo,monospace;color:var(--accent2);text-align:right}
+  .price-tb th.r{text-align:right}
+  .live{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--green);background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.32);padding:3px 10px;border-radius:99px}
+  .live i{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;animation:blink 1.6s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
   @media(max-width:880px){
-    .src-grid,.plans,.steps{grid-template-columns:1fr}
+    .src-grid,.plans,.steps,.acc-grid{grid-template-columns:1fr}
     .agent-grid{grid-template-columns:1fr}
     .hero h1{font-size:32px}
     nav .links{display:none}
@@ -151,6 +174,7 @@
     <a class="logo" href="#top" data-page-node-id="7FAcpCPppXeRkSmglQNBol"><span class="dot" data-page-node-id="i4DKPWu9ZrEINtTgbfiJjx"></span>TokentHub<span style="color:var(--sub);font-size:13px;font-weight:400" data-page-node-id="JD1J676AU1WP2aoMzLZJZr">词元购销</span></a>
     <div class="links" data-page-node-id="9t5CRF1zNz0tG8EVzlH2IE">
       <a href="#buy" data-page-node-id="6Y7IDQOXhjwShyYRLMhB4F">批发购入</a>
+      <a href="#access">API 接入</a>
       <a href="#sell" data-page-node-id="ZHqLS9WmAHAYn6obBvHXfC">销售代理</a>
       <a href="#flow" data-page-node-id="qYJtPwF1m1E3c9eL9YMHcs">交易流程</a>
       <a href="#faq" data-page-node-id="cxD13m1gKjUtmszu7V4qXQ">常见问题</a>
@@ -171,7 +195,7 @@
     </div>
     <div class="hero-stats" data-page-node-id="qAXwK6WOnltENoDArm61uj">
       <div class="s" data-page-node-id="1PDJ0oAdZI0XmZ8YlYCJ6r"><b class="mono" data-page-node-id="nUxjjNkklyw2Hw9EeCvx6d">3 大</b><span data-page-node-id="ISrDGQapNUre1wS254WuWX">源头直采通道</span></div>
-      <div class="s" data-page-node-id="Oz4BaS87fYThJvQkoKC6Ll"><b class="mono" data-page-node-id="0zgFysHy4cgbr9Drfbhq1O">20+</b><span data-page-node-id="BLoYnXcF0J9Dy9kBayYC0v">主流大模型覆盖</span></div>
+      <div class="s" data-page-node-id="Oz4BaS87fYThJvQkoKC6Ll"><b class="mono" data-page-node-id="0zgFysHy4cgbr9Drfbhq1O">98</b><span data-page-node-id="BLoYnXcF0J9Dy9kBayYC0v">个模型可调用</span></div>
       <div class="s" data-page-node-id="EghSJLYA8tD5QHp62HJ2PD"><b class="mono" data-page-node-id="7NHe4GEAcaNVT5kTfmH2qP">99.9%</b><span data-page-node-id="yxNHo5ZduaH8eReVYMCsUx">通道可用性</span></div>
       <div class="s" data-page-node-id="e6HemvECqER9hvt6DMtsFD"><b class="mono" data-page-node-id="DmtYOM2pmWDG2zgDAwNCy6">T+0</b><span data-page-node-id="jawKc2HXkoJEhLhtKh0WPP">额度到账</span></div>
     </div>
@@ -214,44 +238,44 @@
 <section style="padding-top:0" data-page-node-id="m8517NWJPmQygDzi299dDk">
   <div class="wrap" data-page-node-id="MfcnqJVFZOLZtdJfrighzP">
     <h2 class="sec" data-page-node-id="fkvAFE8TStySVo4U3MgGjt">采购套餐</h2>
-    <p class="sec-sub" data-page-node-id="DrfTDY914Rlha073zTvYur">以 DeepSeek-V3.2 为基准计价，其他模型按系数换算。支持按量后付费与包月包年。</p>
+    <p class="sec-sub" data-page-node-id="DrfTDY914Rlha073zTvYur">按额度充值，用多少扣多少，无月费、无最低消费。下表「约可跑」以 DeepSeek-Flash 混合用量（输入 70% / 输出 30%）估算，其他模型按实际单价扣减。</p>
     <div class="plans" data-page-node-id="89SBoeykM8XeU0AkwdnrkN">
       <div class="plan" data-page-node-id="AJXSQVEzHJnCY46MR3IGsD">
-        <h3 data-page-node-id="GdhUJYIL7kUPGBYHGdScL8">体验版</h3>
-        <div class="price" data-page-node-id="casOkP1Aknzlr2o1YOM5x2">¥9.9</div>
-        <div class="unit" data-page-node-id="qIQwZ3zLoKjOXCxTga4Dtl">/ 1 百万 tokens</div>
+        <h3 data-page-node-id="GdhUJYIL7kUPGBYHGdScL8">体验包</h3>
+        <div class="price" data-page-node-id="casOkP1Aknzlr2o1YOM5x2">¥20</div>
+        <div class="unit" data-page-node-id="qIQwZ3zLoKjOXCxTga4Dtl">到账 ¥25 额度（含赠 ¥5）</div>
         <ul data-page-node-id="MmGKRPVjPYe6uns1nEEGGS">
-          <li data-page-node-id="WDG16L1NsHtijBNIVmTVJd">主流模型通用额度</li>
-          <li data-page-node-id="0GJNolzHLqkffShhOhRaXi">标准并发通道</li>
-          <li data-page-node-id="fMFVNMgatCP1HsavtHopDe">API Key 即买即用</li>
-          <li data-page-node-id="ZN4hIqhRDiol6SNgZBo0z7">工单支持</li>
+          <li data-page-node-id="WDG16L1NsHtijBNIVmTVJd">约可跑 <b>400 万 tokens</b></li>
+          <li data-page-node-id="0GJNolzHLqkffShhOhRaXi">全模型通用，含豆包 / DeepSeek</li>
+          <li data-page-node-id="fMFVNMgatCP1HsavtHopDe">Key 当场发放，即买即用</li>
+          <li data-page-node-id="ZN4hIqhRDiol6SNgZBo0z7">先验证效果，再决定是否放大</li>
         </ul>
-        <button class="btn btn-o" onclick="openInquiry('体验版 · ¥9.9/百万tokens')" data-page-node-id="5BrOZ1Keze9HS9uRfqVubH">咨询购买</button>
+        <button class="btn btn-o" onclick="openInquiry('体验包 · ¥20 / 到账 ¥25')" data-page-node-id="5BrOZ1Keze9HS9uRfqVubH">开通体验包</button>
       </div>
       <div class="plan hot" data-page-node-id="PdmsUVF9iBgUnWoHJg5Tic">
         <span class="hot-tag" data-page-node-id="Vy5O8CxVAm1UeJnDE4TCx4">最受欢迎</span>
-        <h3 data-page-node-id="b6hwQ6prGbGd8XX81nEs7g">企业批发版</h3>
-        <div class="price" data-page-node-id="AixMWuT5vD4k2oAF5xLGCc">¥6.8 <small data-page-node-id="NzNeYVGcyafJs7lPS8hMHm">起</small></div>
-        <div class="unit" data-page-node-id="rg5BIWXM8PqH0gZvOgbaaQ">/ 1 百万 tokens · 10 亿起批</div>
+        <h3 data-page-node-id="b6hwQ6prGbGd8XX81nEs7g">标准包</h3>
+        <div class="price" data-page-node-id="AixMWuT5vD4k2oAF5xLGCc">¥200 <small data-page-node-id="NzNeYVGcyafJs7lPS8hMHm">送 ¥60</small></div>
+        <div class="unit" data-page-node-id="rg5BIWXM8PqH0gZvOgbaaQ">到账 ¥260 额度</div>
         <ul data-page-node-id="VVtS9Wc0923LpUoRy5NrFE">
-          <li data-page-node-id="AOYTsw61rxHLFX8NkrCFzH">源头直采，批发价直降 30%</li>
-          <li data-page-node-id="ePUHjb5PPCGQBN3GKUzh1d">独享高并发通道</li>
-          <li data-page-node-id="imseZmDXTQRPAS4uPJEvtq">对公转账 + 专票</li>
-          <li data-page-node-id="zwNg5WCTzITwaxJgo0qP8M">专属客户经理</li>
+          <li data-page-node-id="AOYTsw61rxHLFX8NkrCFzH">约可跑 <b>4300 万 tokens</b></li>
+          <li data-page-node-id="ePUHjb5PPCGQBN3GKUzh1d">并发不限速，高峰不排队</li>
+          <li data-page-node-id="imseZmDXTQRPAS4uPJEvtq">控制台实时看用量与账单</li>
+          <li data-page-node-id="zwNg5WCTzITwaxJgo0qP8M">微信 / 工单技术支持</li>
         </ul>
-        <button class="btn btn-p" onclick="openInquiry('企业批发版 · 10亿起批')" data-page-node-id="4HJUzhMycURmjxG2Zddy58">获取报价</button>
+        <button class="btn btn-p" onclick="openInquiry('标准包 · ¥200 / 到账 ¥260')" data-page-node-id="4HJUzhMycURmjxG2Zddy58">开通标准包</button>
       </div>
       <div class="plan" data-page-node-id="Z8VhKieAT1R8Jbo24eXaKb">
-        <h3 data-page-node-id="sft4ineyO5gxLBHaszEskq">源头锁价版</h3>
-        <div class="price" data-page-node-id="2fsFhFlmTz3kARXzdKtybO">¥5.5 <small data-page-node-id="3OB5MoK44Ikpr4KP4LZn87">起</small></div>
-        <div class="unit" data-page-node-id="h2KPx5mEdLBpy4jwUVB60b">/ 1 百万 tokens · 100 亿起批</div>
+        <h3 data-page-node-id="sft4ineyO5gxLBHaszEskq">企业包</h3>
+        <div class="price" data-page-node-id="2fsFhFlmTz3kARXzdKtybO">¥2000 <small data-page-node-id="3OB5MoK44Ikpr4KP4LZn87">起</small></div>
+        <div class="unit" data-page-node-id="h2KPx5mEdLBpy4jwUVB60b">到账 ¥3000 额度（送 ¥1000）</div>
         <ul data-page-node-id="xxzaoAlBmVg6vMdWuNjD1H">
-          <li data-page-node-id="ZMNL41HlYs5DTkJeyE0t34">锁定源头产能，价格 6 个月不变</li>
-          <li data-page-node-id="JyHTcfAigKYUAuKUKwFHp6">专属算力池保障</li>
-          <li data-page-node-id="03bkHJ3ffnSUkTkbc9gAz2">多模型混合额度池</li>
-          <li data-page-node-id="nFIvIKYBzdg9mHonCfXTkG">故障分钟级切换备用通道</li>
+          <li data-page-node-id="ZMNL41HlYs5DTkJeyE0t34">约可跑 <b>5 亿 tokens</b></li>
+          <li data-page-node-id="JyHTcfAigKYUAuKUKwFHp6">可开增值税专用发票</li>
+          <li data-page-node-id="03bkHJ3ffnSUkTkbc9gAz2">专属通道 + 多 Key 分账</li>
+          <li data-page-node-id="nFIvIKYBzdg9mHonCfXTkG">量大可谈包月包年锁价</li>
         </ul>
-        <button class="btn btn-o" onclick="openInquiry('源头锁价版 · 100亿起批')" data-page-node-id="CWaCUYL4NSUdnnKGR9QZf8">预约洽谈</button>
+        <button class="btn btn-o" onclick="openInquiry('企业包 · ¥2000 起')" data-page-node-id="CWaCUYL4NSUdnnKGR9QZf8">对公洽谈</button>
       </div>
     </div>
   </div>
@@ -316,6 +340,48 @@
   </div>
 </section>
 
+<!-- API 接入 -->
+<section id="access" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <span class="tag">API 接入</span>
+    <h2 class="sec">拿到 Key，改一行 base_url 就能用</h2>
+    <p class="sec-sub">完全兼容 OpenAI 协议。你现有代码、ChatBox、Cherry Studio、Dify、Coze、编程助手插件，只要把地址指向我们，一套 Key 打通全部国产主流模型。</p>
+
+    <div class="acc-grid">
+      <div class="acc-box">
+        <h4>接入信息 <span class="live"><i></i>服务在线</span></h4>
+        <div class="kv"><span class="k">Base URL</span><span class="v">http://47.120.32.84:3002/v1 <button class="copy" onclick="cp(this,'http://47.120.32.84:3002/v1')">复制</button></span></div>
+        <div class="kv"><span class="k">API Key</span><span class="v">开通后发放 sk-… <button class="copy" onclick="openInquiry('开通 API Key')">申请</button></span></div>
+        <div class="kv"><span class="k">协议</span><span class="v">OpenAI 兼容（/chat/completions）</span></div>
+        <div class="kv"><span class="k">计费</span><span class="v">按 token 实时扣，无月费</span></div>
+        <div class="kv"><span class="k">用量查询</span><span class="v">控制台实时可见</span></div>
+      </div>
+      <div class="acc-box">
+        <h4>在售模型与零售价（元 / 百万 tokens）</h4>
+        <table class="price-tb">
+          <tr><th>模型</th><th class="r">输入</th><th class="r">输出</th></tr>
+          <tr><td>deepseek-flash</td><td class="mono">3.2</td><td class="mono">12.8</td></tr>
+          <tr><td>deepseek-v4-pro</td><td class="mono">14.4</td><td class="mono">43.2</td></tr>
+          <tr><td>doubao-seed-2-1-pro</td><td class="mono">9.6</td><td class="mono">48.0</td></tr>
+          <tr><td>DeepSeek-V3.2（备用通道）</td><td class="mono">3.2</td><td class="mono">12.8</td></tr>
+          <tr><td>Qwen / GLM / Kimi 全系</td><td class="mono" colspan="2">同源接入，按模型报价</td></tr>
+        </table>
+        <p style="font-size:12px;color:var(--dim);margin-top:10px">价格为含技术支持的零售价；批量采购或包月包年可另议，支持对公与专票。</p>
+      </div>
+    </div>
+
+    <div style="margin-top:30px">
+      <div class="tabs">
+        <button class="tab on" onclick="swTab(0,this)">cURL</button>
+        <button class="tab" onclick="swTab(1,this)">Python</button>
+        <button class="tab" onclick="swTab(2,this)">Node.js</button>
+        <button class="tab" onclick="swTab(3,this)">ChatBox / Cherry Studio</button>
+      </div>
+      <pre class="code" id="codeBox"></pre>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq" style="padding-top:0" data-page-node-id="kfj5U9Ce3EYghiEjwdK9De">
   <div class="wrap" data-page-node-id="PoG5U2LcRznksGH6yBwtdh">
@@ -325,7 +391,7 @@
       <details data-page-node-id="VdLz667AJjwQwUslWXpehR"><summary data-page-node-id="JfZRPPijUnYMoilBnLOvNT">Token 额度是真的吗？会不会跑路？</summary><p data-page-node-id="28EmZMKR2vN3FfDbEoChwD">全部额度来自运营商/云厂商官方渠道，支持先小额试用验证再放大采购；企业客户走对公签约，合同约束交付。</p></details>
       <details data-page-node-id="XHbQ4OjujNJvyPcLvJRJof"><summary data-page-node-id="NK2qkCAfgjL1oHd6jLtLtx">支持哪些模型？</summary><p data-page-node-id="hIwDSdXiCmDlrZ21ALAhrk">DeepSeek、豆包、通义千问、智谱 GLM、Kimi、混元等国产主流模型，以及海外主流模型合规通道，统一 OpenAI 兼容协议接入。</p></details>
       <details data-page-node-id="hkFqGUW4ElFpOSs1UTCLQD"><summary data-page-node-id="u7DunqEyLNO4Ajdn4SZ9MZ">做代理需要囤货吗？</summary><p data-page-node-id="6LCtBB8iOTRCBDv3prdaa0">不需要。平台统一供货与交付，代理只负责获客与客户服务，差价/佣金由系统按订单自动结算。</p></details>
-      <details data-page-node-id="QiHmoOf3lZFuzVBJ5RZj6h"><summary data-page-node-id="3oIDAiNWLrZCB29DZksOAM">怎么计费？开票吗？</summary><p data-page-node-id="DMI2red7fBqStOHHftBXUG">按百万 tokens 计费，支持包量、包月与后付费；对公采购可开增值税专用发票。</p></details>
+      <details data-page-node-id="QiHmoOf3lZFuzVBJ5RZj6h"><summary data-page-node-id="3oIDAiNWLrZCB29DZksOAM">怎么计费？开票吗？</summary><p data-page-node-id="DMI2red7fBqStOHHftBXUG">充值额度制：充多少用多少，按每次调用的实际 token 数实时扣减，无月费、无最低消费。后台可实时看用量与账单明细。对公采购可开增值税专用发票。</p></details>
       <details data-page-node-id="Bkb9MmXAozzKVqnULT5uHb"><summary data-page-node-id="3WDa3wMN5XloZK3bAzaiht">和直接找官方买有什么区别？</summary><p data-page-node-id="SjPxc2o7uo65LbbcUo50Xq">源头聚合比价 + 批量折扣 + 一站式多模型接入，省去逐家开户与充值，价格通常低于官方牌价 20%~40%。</p></details>
     </div>
   </div>
@@ -334,10 +400,10 @@
 <!-- CTA band -->
 <div class="band" data-page-node-id="N5vlLfQwcbVqDaWthJGsSo">
   <div class="wrap" data-page-node-id="HdEGKIAsIleorSPJQISwct">
-    <h3 data-page-node-id="yLE2GXp0NESm99mBsRC7aN">今天加微信，明天就能用上源头价的 Token</h3>
+    <h3 data-page-node-id="yLE2GXp0NESm99mBsRC7aN">5 分钟开通，今天就能用上源头价的 Token</h3>
     <div style="display:flex;gap:12px;flex-wrap:wrap" data-page-node-id="Z4aUMHfig6jyp7PXJECAG2">
-      <button class="btn btn-p" onclick="openInquiry('批发采购')" data-page-node-id="Ab9C8v6HltD9zsM2QuCwwJ">采购询价</button>
-      <button class="btn btn-g" onclick="openInquiry('申请成为代理')" data-page-node-id="s40DjxBN0NSrmP179GT0Lt">申请代理</button>
+      <a class="btn btn-p" href="#access">查看接入方式</a>
+      <button class="btn btn-g" onclick="openInquiry('开通 API Key')" data-page-node-id="s40DjxBN0NSrmP179GT0Lt">立即开通</button>
     </div>
   </div>
 </div>
@@ -358,35 +424,37 @@
     <input id="fName" placeholder="您的称呼" data-page-node-id="n5dL1WPHKpztu28mFWxUUr">
     <input id="fPhone" placeholder="微信 / 手机号" data-page-node-id="3O2Cco97I2sabF2a7enztD">
     <select id="fType" data-page-node-id="KhP3apLtitjA5UDhA6Bgcv">
-      <option data-page-node-id="iVZi9AGMM2x8u519yBpgaC">批发采购</option>
-      <option data-page-node-id="zLQgleWpGeIcFNEGn1276S">申请成为代理</option>
-      <option data-page-node-id="K9rapFqsgwrHMKGnSsbaqy">在线咨询</option>
+      <option value="开通 API Key" data-page-node-id="iVZi9AGMM2x8u519yBpgaC">开通 API Key</option>
+      <option value="体验包">体验包 ¥20</option>
+      <option value="标准包">标准包 ¥200</option>
+      <option value="企业包">企业包 ¥2000 起</option>
+      <option value="申请成为代理" data-page-node-id="zLQgleWpGeIcFNEGn1276S">申请成为代理</option>
+      <option value="其他咨询" data-page-node-id="K9rapFqsgwrHMKGnSsbaqy">其他咨询</option>
     </select>
     <textarea id="fNote" rows="3" placeholder="月用量 / 想用的模型（如：DeepSeek 每月 50 亿 tokens）"></textarea>
     <div class="acts" data-page-node-id="XaRERzEuoa7uX6ZunoUvmD">
       <button class="btn btn-o" onclick="closeInquiry()" data-page-node-id="n7jHd3quBpPx34PdWGZGis">取消</button>
       <button class="btn btn-p" onclick="submitInquiry()" data-page-node-id="28OHLqjbntS836GzAKyd1x">提交</button>
     </div>
-    <div class="ok-msg" id="okMsg" hidden data-page-node-id="BvVzxrxgWHdFAOMC6Vm8Yn">✓ 已收到！demo 演示环境，正式版将接入客服系统。你也可以直接联系微信 TokentHub-001。</div>
+    <div class="ok-msg" id="okMsg" hidden data-page-node-id="BvVzxrxgWHdFAOMC6Vm8Yn">✓ 需求已记录！请加微信 TokentHub-001 或发邮件 sales@tokenthub.cn，30 分钟内为你开通 Key。</div>
   </div>
 </div>
 
 <script>
-// ---------- 行情 ticker ----------
+// ---------- 行情 ticker（真实在售模型 · 零售输入价 元/百万）----------
 var MODELS=[
-  {n:'DeepSeek-V3.2',p:4.5},{n:'DeepSeek-R2',p:12.0},{n:'豆包 Seed 2.1 Pro',p:8.0},
-  {n:'通义 Qwen-Max',p:9.6},{n:'智谱 GLM-5',p:7.2},{n:'Kimi K2',p:10.0},
-  {n:'混元 Turbo',p:6.5},{n:'GPT-5 mini',p:18.0},{n:'Claude Sonnet',p:26.0}
+  {n:'deepseek-flash',p:3.2},{n:'deepseek-v4-pro',p:14.4},
+  {n:'豆包 Seed 2.1 Pro',p:9.6},{n:'DeepSeek-V3.2',p:3.2}
 ];
 function buildTicker(){
   var html='';
-  for(var loop=0;loop<2;loop++){
+  for(var loop=0;loop<4;loop++){
     MODELS.forEach(function(m){
       var d=(Math.random()-0.42)*0.06;
       var np=m.p*(1+d);
       var up=d>=0;
       html+='<div class="tk"><span class="name">'+m.n+'</span>'+
-        '<span class="mono">¥'+np.toFixed(2)+'<small style="color:var(--dim)">/百万</small></span>'+
+        '<span class="mono">¥'+np.toFixed(2)+'<small style="color:var(--dim)">/百万输入</small></span>'+
         '<span class="mono '+(up?'up':'dn')+'">'+(up?'▲':'▼')+' '+Math.abs(d*100).toFixed(2)+'%</span></div>';
     });
   }
@@ -411,12 +479,18 @@ calc();
 
 // ---------- 询价弹层 ----------
 function openInquiry(type){
+  var sel=document.getElementById('fType'), note=document.getElementById('fNote');
   document.getElementById('mask').hidden=false;
   document.getElementById('mTitle').textContent=type;
   document.getElementById('okMsg').hidden=true;
-  if(type==='申请成为代理'){document.getElementById('fType').value='申请成为代理';}
-  else if(type.indexOf('·')>-1){document.getElementById('fType').value='批发采购';document.getElementById('fNote').value='咨询套餐：'+type;}
-  else{document.getElementById('fType').value=type;}
+  var key='其他咨询';
+  if(type.indexOf('代理')>-1)key='申请成为代理';
+  else if(type.indexOf('体验')>-1)key='体验包';
+  else if(type.indexOf('标准')>-1)key='标准包';
+  else if(type.indexOf('企业')>-1||type.indexOf('批发')>-1||type.indexOf('采购')>-1)key='企业包';
+  else if(type.indexOf('Key')>-1||type.indexOf('开通')>-1)key='开通 API Key';
+  sel.value=key;
+  if(type.indexOf('·')>-1){note.value='咨询：'+type;}
 }
 function closeInquiry(){document.getElementById('mask').hidden=true}
 function submitInquiry(){
@@ -431,6 +505,82 @@ function submitInquiry(){
   setTimeout(closeInquiry,2200);
 }
 document.getElementById('mask').addEventListener('click',function(e){if(e.target===this)closeInquiry()});
+
+// ---------- API 接入代码示例 ----------
+var CODES=[
+[
+'curl http://47.120.32.84:3002/v1/chat/completions \\',
+'  -H "Authorization: Bearer sk-你的Key" \\',
+'  -H "Content-Type: application/json" \\',
+'  -d \'{"model":"deepseek-flash","messages":[{"role":"user","content":"你好"}]}\''
+].join('\n'),
+[
+'from openai import OpenAI',
+'',
+'client = OpenAI(',
+'    base_url="http://47.120.32.84:3002/v1",',
+'    api_key="sk-你的Key",',
+')',
+'',
+'resp = client.chat.completions.create(',
+'    model="deepseek-flash",',
+'    messages=[{"role": "user", "content": "你好"}],',
+')',
+'print(resp.choices[0].message.content)'
+].join('\n'),
+[
+'import OpenAI from "openai";',
+'',
+'const client = new OpenAI({',
+'  baseURL: "http://47.120.32.84:3002/v1",',
+'  apiKey: "sk-你的Key",',
+'});',
+'',
+'const resp = await client.chat.completions.create({',
+'  model: "deepseek-flash",',
+'  messages: [{ role: "user", content: "你好" }],',
+'});',
+'console.log(resp.choices[0].message.content);'
+].join('\n'),
+[
+'以 Cherry Studio 为例（ChatBox / Dify / Coze 同理）：',
+'',
+'1. 设置 → 模型服务 → 添加 → 选「OpenAI」',
+'2. API 地址填：  http://47.120.32.84:3002/v1',
+'3. API 密钥填：  sk-你的Key',
+'4. 「添加模型」，模型 ID 手动输入以下任一：',
+'',
+'     deepseek-flash',
+'     deepseek-v4-pro',
+'     doubao-seed-2-1-pro-260915',
+'     Pro/deepseek-ai/DeepSeek-V3.2',
+'',
+'保存后在对话框顶部选中该模型即可聊天。'
+].join('\n')
+];
+function swTab(i,btn){
+  var tabs=btn.parentNode.querySelectorAll('.tab');
+  for(var k=0;k<tabs.length;k++)tabs[k].className='tab';
+  btn.className='tab on';
+  document.getElementById('codeBox').textContent=CODES[i];
+}
+document.getElementById('codeBox').textContent=CODES[0];
+
+// ---------- 复制到剪贴板 ----------
+function cp(btn,text){
+  var old=btn.textContent;
+  function done(){btn.textContent='已复制';setTimeout(function(){btn.textContent=old},1500)}
+  function fallback(){
+    var t=document.createElement('textarea');
+    t.value=text;t.style.position='fixed';t.style.opacity='0';
+    document.body.appendChild(t);t.select();
+    try{document.execCommand('copy');done()}catch(e){}
+    document.body.removeChild(t);
+  }
+  if(navigator.clipboard&&window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done).catch(fallback);
+  }else{fallback()}
+}
 </script>
 </body>
 </html>
