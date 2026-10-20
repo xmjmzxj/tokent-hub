@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="GRPF8aqoGk3PlVgqrASuQt">
+<head data-page-node-id="hxnmhNebAbTEuEBjt1LLGU">
+<meta charset="UTF-8" data-page-node-id="L27eI2o6IG2s34DZ4yHbMK">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="QAN7gHN0FnaJ5i2oB6luAw">
+<title>TokentHub 词元购销 · 买Token 卖Token 源头直采</title>
+<meta name="description" content="AI 大模型 Token（词元）购销平台：上游源头直采批发，下游零售与代理分销。Token 工厂 / Token 代理 / 词元经济。" data-page-node-id="9UDCkCIhhtucmAdY1HqKYk">
+<style>
+  :root{
+    --bg:#0e0f13; --bg2:#14161c; --card:#191c24; --line:#262a35;
+    --txt:#e8eaf0; --sub:#9aa1b2; --dim:#6b7280;
+    --green:#3ddc84; --red:#ff5d5d; --gold:#f5c542;
+    --accent:#7c6cff; --accent2:#4cc9f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  [hidden]{display:none!important}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  section{padding:72px 0}
+  .tag{display:inline-block;font-size:12px;letter-spacing:.2em;color:var(--gold);border:1px solid rgba(245,197,66,.35);padding:4px 12px;border-radius:99px;margin-bottom:18px}
+  h2.sec{font-size:32px;font-weight:800;letter-spacing:.02em}
+  .sec-sub{color:var(--sub);margin-top:10px;max-width:640px}
+  .mono{font-family:Consolas,Menlo,monospace}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(14,15,19,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:900;font-size:19px;display:flex;align-items:center;gap:8px}
+  .logo .dot{width:10px;height:10px;border-radius:3px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav .links{display:flex;gap:26px;font-size:14px;color:var(--sub)}
+  nav .links a:hover{color:var(--txt)}
+  .btn{display:inline-block;border:none;cursor:pointer;font-size:15px;font-weight:700;border-radius:10px;padding:11px 22px;transition:.15s}
+  .btn-p{background:linear-gradient(135deg,var(--accent),#5a7bff);color:#fff}
+  .btn-p:hover{filter:brightness(1.12)}
+  .btn-o{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn-o:hover{border-color:var(--accent)}
+  .btn-g{background:rgba(61,220,132,.12);color:var(--green);border:1px solid rgba(61,220,132,.4)}
+  .btn-sm{padding:8px 16px;font-size:13px}
+
+  /* hero */
+  .hero{padding:90px 0 60px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(600px 300px at 15% 0%,rgba(124,108,255,.16),transparent),
+    radial-gradient(500px 300px at 85% 20%,rgba(76,201,240,.10),transparent);pointer-events:none}
+  .hero h1{font-size:46px;line-height:1.25;font-weight:900;letter-spacing:.01em}
+  .hero h1 .hl{background:linear-gradient(90deg,var(--gold),#ff9f43);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{color:var(--sub);font-size:17px;margin:22px 0 34px;max-width:620px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap}
+  .hero-stats .s b{font-size:26px;font-weight:800;display:block}
+  .hero-stats .s span{font-size:13px;color:var(--dim)}
+
+  /* ticker */
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:12px 0}
+  .ticker-track{display:flex;gap:34px;width:max-content;animation:tick 32s linear infinite;font-size:14px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tk{display:flex;gap:8px;align-items:center;white-space:nowrap}
+  .tk .name{color:var(--sub)}
+  .tk .up{color:var(--red)} .tk .dn{color:var(--green)}
+
+  /* 源头三地 */
+  .src-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .src{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .src .no{font-size:13px;color:var(--gold);letter-spacing:.15em}
+  .src h3{font-size:19px;margin:10px 0 8px}
+  .src p{font-size:14px;color:var(--sub)}
+  .src .pill{display:inline-block;margin-top:14px;font-size:12px;color:var(--accent2);background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.3);padding:3px 10px;border-radius:99px}
+
+  /* 套餐 */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative;display:flex;flex-direction:column}
+  .plan.hot{border-color:var(--gold);box-shadow:0 0 0 1px rgba(245,197,66,.25),0 18px 50px -20px rgba(245,197,66,.25)}
+  .plan .hot-tag{position:absolute;top:-11px;left:24px;background:var(--gold);color:#1a1a1a;font-size:12px;font-weight:800;padding:2px 10px;border-radius:99px}
+  .plan h3{font-size:18px}
+  .plan .price{margin:14px 0 4px;font-size:34px;font-weight:900}
+  .plan .price small{font-size:14px;color:var(--sub);font-weight:400}
+  .plan .unit{font-size:13px;color:var(--dim);margin-bottom:18px}
+  .plan ul{list-style:none;font-size:14px;color:var(--sub);flex:1}
+  .plan li{padding:6px 0;border-bottom:1px dashed var(--line)}
+  .plan li::before{content:"✓ ";color:var(--green)}
+  .plan .btn{margin-top:20px;width:100%;text-align:center}
+
+  /* 代理 */
+  .agent-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;margin-top:40px;align-items:start}
+  .tiers{display:flex;flex-direction:column;gap:14px}
+  .tier{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;align-items:flex-start}
+  .tier .ic{width:42px;height:42px;border-radius:10px;background:rgba(124,108,255,.14);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .tier h4{font-size:16px}
+  .tier p{font-size:13px;color:var(--sub)}
+  .tier .rate{margin-left:auto;font-weight:800;color:var(--green);white-space:nowrap}
+  .calc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .calc h4{font-size:16px;margin-bottom:18px}
+  .calc label{font-size:13px;color:var(--sub);display:flex;justify-content:space-between;margin-bottom:8px}
+  .calc input[type=range]{width:100%;accent-color:var(--accent)}
+  .calc .out{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line)}
+  .calc .out .row{display:flex;justify-content:space-between;font-size:14px;color:var(--sub);padding:4px 0}
+  .calc .out .row b{color:var(--txt);font-size:16px}
+  .calc .out .total b{color:var(--gold);font-size:24px}
+
+  /* 流程 */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .step .n{font-size:30px;font-weight:900;color:transparent;-webkit-text-stroke:1px var(--accent)}
+  .step h4{margin:10px 0 6px;font-size:16px}
+  .step p{font-size:13px;color:var(--sub)}
+
+  /* faq */
+  .faq{max-width:760px;margin:40px auto 0}
+  details{border-bottom:1px solid var(--line);padding:18px 4px}
+  details summary{cursor:pointer;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details summary::after{content:"+";color:var(--accent);font-size:20px}
+  details[open] summary::after{content:"−"}
+  details p{color:var(--sub);font-size:14px;margin-top:10px}
+
+  /* cta band */
+  .band{background:linear-gradient(135deg,rgba(124,108,255,.14),rgba(76,201,240,.10));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .band .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:44px 20px}
+  .band h3{font-size:24px;font-weight:800}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:36px 0;color:var(--dim);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .risk{margin-top:14px;font-size:12px;color:var(--dim)}
+
+  /* modal */
+  .mask{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:90;display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal{background:var(--bg2);border:1px solid var(--line);border-radius:16px;max-width:460px;width:100%;padding:28px}
+  .modal h3{font-size:18px;margin-bottom:6px}
+  .modal .m-sub{font-size:13px;color:var(--sub);margin-bottom:18px}
+  .modal input,.modal select,.modal textarea{width:100%;background:var(--card);border:1px solid var(--line);border-radius:9px;color:var(--txt);padding:10px 12px;font-size:14px;margin-bottom:12px;outline:none}
+  .modal input:focus,.modal select:focus{border-color:var(--accent)}
+  .modal .acts{display:flex;gap:10px;margin-top:6px}
+  .modal .acts .btn{flex:1;text-align:center}
+  .ok-msg{color:var(--green);font-size:14px;margin-top:10px}
+
+  @media(max-width:880px){
+    .src-grid,.plans,.steps{grid-template-columns:1fr}
+    .agent-grid{grid-template-columns:1fr}
+    .hero h1{font-size:32px}
+    nav .links{display:none}
+    section{padding:52px 0}
+  }
+</style>
+</head>
+<body data-page-node-id="wVIE2FGkJ0karzxTJlEgEc">
+
+<nav data-page-node-id="zzlX52EZvDDLVzRAKYSTdb">
+  <div class="wrap" data-page-node-id="gdYOLIGueh8thnH4Wcv2DJ">
+    <a class="logo" href="#top" data-page-node-id="7FAcpCPppXeRkSmglQNBol"><span class="dot" data-page-node-id="i4DKPWu9ZrEINtTgbfiJjx"></span>TokentHub<span style="color:var(--sub);font-size:13px;font-weight:400" data-page-node-id="JD1J676AU1WP2aoMzLZJZr">词元购销</span></a>
+    <div class="links" data-page-node-id="9t5CRF1zNz0tG8EVzlH2IE">
+      <a href="#buy" data-page-node-id="6Y7IDQOXhjwShyYRLMhB4F">批发购入</a>
+      <a href="#sell" data-page-node-id="ZHqLS9WmAHAYn6obBvHXfC">销售代理</a>
+      <a href="#flow" data-page-node-id="qYJtPwF1m1E3c9eL9YMHcs">交易流程</a>
+      <a href="#faq" data-page-node-id="cxD13m1gKjUtmszu7V4qXQ">常见问题</a>
+    </div>
+    <button class="btn btn-p btn-sm" onclick="openInquiry('在线咨询')" data-page-node-id="Wl54jX2zCYATjb8Kongvgj">立即询价</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top" data-page-node-id="LqHwztDO9sfN8aNTj98X4S">
+  <div class="wrap" data-page-node-id="zvlH3sCFklINNycVeLFJd7">
+    <span class="tag" data-page-node-id="jKWG28Ej9L7hY71t2ASwZV">TOKEN FACTORY OPEN · 词元聚合分发</span>
+    <h1 data-page-node-id="RjqDjGx95DkuXrWvErykB3">买 Token，卖 Token，<br data-page-node-id="ZynX8tpeW5mBx8AXFCWuVF">从<span class="hl" data-page-node-id="H8rLXQzlsrfbIj7HyhBCHP">源头</span>开始。</h1>
+    <p class="lead" data-page-node-id="DeHBH4u3VjSBfpx8X4aHKN">聚合运营商算力、云厂商与智算枢纽三大源头，AI 大模型 Token（词元）一站式批发购入 + 零售/代理分销。额度真实、价格透明、按需采买。</p>
+    <div class="cta" data-page-node-id="5Vz7Rl7KLDDwATUT73Mz7d">
+      <button class="btn btn-p" onclick="openInquiry('批发采购')" data-page-node-id="kpClHN7gs1DfRJmf103YAk">我要购入 Token</button>
+      <a class="btn btn-o" href="#sell" data-page-node-id="e1M6frjF3oiLDppUg2Wo6a">我要卖 Token / 做代理</a>
+    </div>
+    <div class="hero-stats" data-page-node-id="qAXwK6WOnltENoDArm61uj">
+      <div class="s" data-page-node-id="1PDJ0oAdZI0XmZ8YlYCJ6r"><b class="mono" data-page-node-id="nUxjjNkklyw2Hw9EeCvx6d">3 大</b><span data-page-node-id="ISrDGQapNUre1wS254WuWX">源头直采通道</span></div>
+      <div class="s" data-page-node-id="Oz4BaS87fYThJvQkoKC6Ll"><b class="mono" data-page-node-id="0zgFysHy4cgbr9Drfbhq1O">20+</b><span data-page-node-id="BLoYnXcF0J9Dy9kBayYC0v">主流大模型覆盖</span></div>
+      <div class="s" data-page-node-id="EghSJLYA8tD5QHp62HJ2PD"><b class="mono" data-page-node-id="7NHe4GEAcaNVT5kTfmH2qP">99.9%</b><span data-page-node-id="yxNHo5ZduaH8eReVYMCsUx">通道可用性</span></div>
+      <div class="s" data-page-node-id="e6HemvECqER9hvt6DMtsFD"><b class="mono" data-page-node-id="DmtYOM2pmWDG2zgDAwNCy6">T+0</b><span data-page-node-id="jawKc2HXkoJEhLhtKh0WPP">额度到账</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- 行情 -->
+<div class="ticker" data-page-node-id="lfk9HCFt2SNmfsXkUyA2nQ"><div class="ticker-track" id="tickerTrack" data-page-node-id="071Cua8Dz7FGOmCg0pSwBy"></div></div>
+
+<!-- 三个源头 -->
+<section id="buy" data-page-node-id="9ZJlXRT9vsiOMAst0LVkNv">
+  <div class="wrap" data-page-node-id="l6LFjY9przh4rq96w1YJg0">
+    <span class="tag" data-page-node-id="5iotPHOxh6plKJs5hgKCly">批发购入</span>
+    <h2 class="sec" data-page-node-id="ylzf7ieqxZl4NFtL5061Di">Token 源头，就在这三个地方</h2>
+    <p class="sec-sub" data-page-node-id="8H4slC3ReOQwAfNa1biPH2">买小商品要去义乌，买 Token 要认源头。我们只做一手：源头直采、去掉中间商，价格才有竞争力。</p>
+    <div class="src-grid" data-page-node-id="FpBgxmoxEF0WFKEcc5sjHF">
+      <div class="src" data-page-node-id="VHuXmBVFgCwF2on8hdqAyZ">
+        <div class="no" data-page-node-id="VnqI8GgKqB8YvbziBjLQD8">SOURCE 01</div>
+        <h3 data-page-node-id="4AgAfDqwBIXAx81LNTLcxL">运营商算力</h3>
+        <p data-page-node-id="W2d7ZT4XeJvT3cKpWlaUtO">电信/移动/联通的智算集群与国产算力底座， token 产能稳定，适合长期大批量锁定。</p>
+        <span class="pill" data-page-node-id="LJ25ghVaFRyctfBWYc9lUg">大额锁价 · 长约优先</span>
+      </div>
+      <div class="src" data-page-node-id="LgMfbsrtaYgJ9DcPbfustG">
+        <div class="no" data-page-node-id="uV19tgWJwb3Q0sZpVmNEab">SOURCE 02</div>
+        <h3 data-page-node-id="ly2NXuva8wNJzCgK0MlkJ4">云厂商官方额度</h3>
+        <p data-page-node-id="2rUaZpJsZ9EbmnNyLymYHP">豆包 / DeepSeek / 通义 / GLM / Kimi 等官方渠道额度，发票齐全，模型版本随官方同步更新。</p>
+        <span class="pill" data-page-node-id="BkDcMDHNknpfe8De4IiKip">正品保障 · 可开票</span>
+      </div>
+      <div class="src" data-page-node-id="fiE7BMvmYGBpXKYwiCJHu6">
+        <div class="no" data-page-node-id="bTsIjxL6d9yjrIl4fjJLJc">SOURCE 03</div>
+        <h3 data-page-node-id="vFIk4knFCqGdYyg19i8qX4">智算枢纽 / 东数西算</h3>
+        <p data-page-node-id="mjFKIX42Ap9aNmD9iYunDd">全国八大算力枢纽节点富余产能，错峰采购成本更低，适合对价格敏感的规模化调用。</p>
+        <span class="pill" data-page-node-id="axEToQbaC798N1OheglJOH">错峰低价 · 弹性扩容</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 套餐 -->
+<section style="padding-top:0" data-page-node-id="m8517NWJPmQygDzi299dDk">
+  <div class="wrap" data-page-node-id="MfcnqJVFZOLZtdJfrighzP">
+    <h2 class="sec" data-page-node-id="fkvAFE8TStySVo4U3MgGjt">采购套餐</h2>
+    <p class="sec-sub" data-page-node-id="DrfTDY914Rlha073zTvYur">以 DeepSeek-V3.2 为基准计价，其他模型按系数换算。支持按量后付费与包月包年。</p>
+    <div class="plans" data-page-node-id="89SBoeykM8XeU0AkwdnrkN">
+      <div class="plan" data-page-node-id="AJXSQVEzHJnCY46MR3IGsD">
+        <h3 data-page-node-id="GdhUJYIL7kUPGBYHGdScL8">体验版</h3>
+        <div class="price" data-page-node-id="casOkP1Aknzlr2o1YOM5x2">¥9.9</div>
+        <div class="unit" data-page-node-id="qIQwZ3zLoKjOXCxTga4Dtl">/ 1 百万 tokens</div>
+        <ul data-page-node-id="MmGKRPVjPYe6uns1nEEGGS">
+          <li data-page-node-id="WDG16L1NsHtijBNIVmTVJd">主流模型通用额度</li>
+          <li data-page-node-id="0GJNolzHLqkffShhOhRaXi">标准并发通道</li>
+          <li data-page-node-id="fMFVNMgatCP1HsavtHopDe">API Key 即买即用</li>
+          <li data-page-node-id="ZN4hIqhRDiol6SNgZBo0z7">工单支持</li>
+        </ul>
+        <button class="btn btn-o" onclick="openInquiry('体验版 · ¥9.9/百万tokens')" data-page-node-id="5BrOZ1Keze9HS9uRfqVubH">咨询购买</button>
+      </div>
+      <div class="plan hot" data-page-node-id="PdmsUVF9iBgUnWoHJg5Tic">
+        <span class="hot-tag" data-page-node-id="Vy5O8CxVAm1UeJnDE4TCx4">最受欢迎</span>
+        <h3 data-page-node-id="b6hwQ6prGbGd8XX81nEs7g">企业批发版</h3>
+        <div class="price" data-page-node-id="AixMWuT5vD4k2oAF5xLGCc">¥6.8 <small data-page-node-id="NzNeYVGcyafJs7lPS8hMHm">起</small></div>
+        <div class="unit" data-page-node-id="rg5BIWXM8PqH0gZvOgbaaQ">/ 1 百万 tokens · 10 亿起批</div>
+        <ul data-page-node-id="VVtS9Wc0923LpUoRy5NrFE">
+          <li data-page-node-id="AOYTsw61rxHLFX8NkrCFzH">源头直采，批发价直降 30%</li>
+          <li data-page-node-id="ePUHjb5PPCGQBN3GKUzh1d">独享高并发通道</li>
+          <li data-page-node-id="imseZmDXTQRPAS4uPJEvtq">对公转账 + 专票</li>
+          <li data-page-node-id="zwNg5WCTzITwaxJgo0qP8M">专属客户经理</li>
+        </ul>
+        <button class="btn btn-p" onclick="openInquiry('企业批发版 · 10亿起批')" data-page-node-id="4HJUzhMycURmjxG2Zddy58">获取报价</button>
+      </div>
+      <div class="plan" data-page-node-id="Z8VhKieAT1R8Jbo24eXaKb">
+        <h3 data-page-node-id="sft4ineyO5gxLBHaszEskq">源头锁价版</h3>
+        <div class="price" data-page-node-id="2fsFhFlmTz3kARXzdKtybO">¥5.5 <small data-page-node-id="3OB5MoK44Ikpr4KP4LZn87">起</small></div>
+        <div class="unit" data-page-node-id="h2KPx5mEdLBpy4jwUVB60b">/ 1 百万 tokens · 100 亿起批</div>
+        <ul data-page-node-id="xxzaoAlBmVg6vMdWuNjD1H">
+          <li data-page-node-id="ZMNL41HlYs5DTkJeyE0t34">锁定源头产能，价格 6 个月不变</li>
+          <li data-page-node-id="JyHTcfAigKYUAuKUKwFHp6">专属算力池保障</li>
+          <li data-page-node-id="03bkHJ3ffnSUkTkbc9gAz2">多模型混合额度池</li>
+          <li data-page-node-id="nFIvIKYBzdg9mHonCfXTkG">故障分钟级切换备用通道</li>
+        </ul>
+        <button class="btn btn-o" onclick="openInquiry('源头锁价版 · 100亿起批')" data-page-node-id="CWaCUYL4NSUdnnKGR9QZf8">预约洽谈</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 销售代理 -->
+<section id="sell" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)" data-page-node-id="jdiCJo7IM1Yl4B7TwQzszy">
+  <div class="wrap" data-page-node-id="4kcH9Cj3jJl1yH2Pbrz2vL">
+    <span class="tag" data-page-node-id="4RzUN4Js6YsiOeuUuwjwED">销售 / 代理</span>
+    <h2 class="sec" data-page-node-id="wdbjujjuFPvygrkIFoxpef">想做 Token 的销售？来当代理</h2>
+    <p class="sec-sub" data-page-node-id="k3ciPQUD6Fk0PdcwFRq1w7">平台供货、你负责卖。不压货、不垫资，客户在你的专属后台下单，差价与佣金自动结算。</p>
+    <div class="agent-grid" data-page-node-id="MbealECm7BO0t2UmCCkBhs">
+      <div class="tiers" data-page-node-id="E65HAY0RyMRVzlbH8LWR8R">
+        <div class="tier" data-page-node-id="gEsowXTYA1FWThlnDOpPT3">
+          <div class="ic" data-page-node-id="PxqX2vO2uI2Q1wAwheh0BS">🤝</div>
+          <div data-page-node-id="fI1bC2rGdg20KziIIXcFBC"><h4 data-page-node-id="0SA0TIBCDdUcks9AUMCXwl">分销员</h4><p data-page-node-id="dLcrbR5MxKtw8nP480CryO">零门槛，分享专属链接即可，适合个人副业。</p></div>
+          <div class="rate" data-page-node-id="k2bF0w0BNpQVXCv66oP00X">佣金 15%</div>
+        </div>
+        <div class="tier" data-page-node-id="sul6e2g8CDpn7n3f7GPyBt">
+          <div class="ic" data-page-node-id="FG3PCVbdMXigx1jswOxcQD">🏢</div>
+          <div data-page-node-id="MXXJtkHQd5u8oFfyS0IByg"><h4 data-page-node-id="3W0zkjapZABG5cShCWliGA">区域代理商</h4><p data-page-node-id="VncRCHariaTASEgQ6X1Qmp">自有客户资源（软件公司/教培/电商），拿货价 8 折起，自主定价。</p></div>
+          <div class="rate" data-page-node-id="gx8TfKSsjSKTd1sNRVNjMU">差价 20%+</div>
+        </div>
+        <div class="tier" data-page-node-id="UHl8mrmg2FwDhZ3lXMAU4X">
+          <div class="ic" data-page-node-id="JyBJli8DyhH3Izwz1vSJO9">🏭</div>
+          <div data-page-node-id="ejguSNqfCbwh4ZwQe8mLnz"><h4 data-page-node-id="tHhp8dDmDE7Rdo6Q0iM8fx">源头合伙人</h4><p data-page-node-id="zUAh1PcHxZtUkC6HUFuPuy">参与源头额度拼团锁价，发展下级代理享团队提成。</p></div>
+          <div class="rate" data-page-node-id="7meuQfXgDGJEkR0JXHesjS">综合 35%</div>
+        </div>
+      </div>
+      <div class="calc" data-page-node-id="UliZvSfmIwqPreDVFgIkuq">
+        <h4 data-page-node-id="FO3KuaxblRpxqWGmcnIA9S">💰 代理收益测算</h4>
+        <label data-page-node-id="h3hNVEGWmDgNDLCH7lES49">月销量 <span id="volVal" class="mono" data-page-node-id="bJkHuIsA3QUK5XmjqOswR8">50 亿 tokens</span></label>
+        <input type="range" id="vol" min="1" max="20" value="5" oninput="calc()" data-page-node-id="1OAxyg45wgwAkGMAYdHuGW">
+        <label style="margin-top:14px" data-page-node-id="E7VDzLXpoL5PXZMSkfcDh2">代理等级</label>
+        <select id="tierSel" onchange="calc()" data-page-node-id="egWrLQZLqia7NDELeBut26">
+          <option value="0.15" data-page-node-id="RdUPHQH7oZoH22h8kRfg3t">分销员（佣金 15%）</option>
+          <option value="0.22" selected data-page-node-id="AwFlQhAu6yK7wXNQHLARjE">区域代理商（差价 22%）</option>
+          <option value="0.35" data-page-node-id="KSpbawYOTGF1AyzzzKNdpL">源头合伙人（综合 35%）</option>
+        </select>
+        <div class="out" data-page-node-id="tGDA6DDbV9Pq6PqvDv8fyn">
+          <div class="row" data-page-node-id="y9CUaBNmrVlb15sdKEGbia"><span data-page-node-id="eAYdmV7GCBkAQP9aHGN8hb">客户月消费额</span><b class="mono" id="outGmv" data-page-node-id="pT1oJ8CyJdiwKOzMfgitK9">—</b></div>
+          <div class="row" data-page-node-id="WTCC7lJ67IS59K7WctMIS1"><span data-page-node-id="4Il6A8LIrpBriXqWBLmlfz">你的月收益（估）</span><b class="mono" id="outCom" data-page-node-id="SmqT4q275eptDjgVanV8YN">—</b></div>
+          <div class="row total" data-page-node-id="vD4O0v92HYVxXpSbTGCOtv"><span data-page-node-id="cGVkxK1yQ39A0XcOiyDst3">年度收益（估）</span><b class="mono" id="outYear" data-page-node-id="3rhQW1Beea7bY3pwNBLtfk">—</b></div>
+        </div>
+        <button class="btn btn-g" style="width:100%;margin-top:18px;text-align:center" onclick="openInquiry('申请成为代理')" data-page-node-id="lEPSNrq34HCoR5XxfHlKDO">申请成为代理</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 流程 -->
+<section id="flow" data-page-node-id="FvhbweafN82p3rVQMEG4f4">
+  <div class="wrap" data-page-node-id="1xSFq1VEJQgQEZ3FK8mdLL">
+    <span class="tag" data-page-node-id="ptnIhnOXk6SpLw1be10Po3">交易流程</span>
+    <h2 class="sec" data-page-node-id="bLgnEeF4TDxuilHAjMDfZr">四步完成购销</h2>
+    <div class="steps" data-page-node-id="FXhopNPmjaAPvRmPMNmdVK">
+      <div class="step" data-page-node-id="Xah3Rfqvw22vfJ0ap2fwVq"><div class="n" data-page-node-id="vESCxo87UbIWzsxfsuAwhM">01</div><h4 data-page-node-id="qaxg2mlKwb2rxCsScPVNaf">询价锁源</h4><p data-page-node-id="k77cnAAO6WVpG9IhICtEyn">提交用量与模型需求，客服 30 分钟内给出源头报价。</p></div>
+      <div class="step" data-page-node-id="0AklVrTEuc2HHlFf6mf4EZ"><div class="n" data-page-node-id="KQxZKel8V0agbYfrBSOaww">02</div><h4 data-page-node-id="G5lcNIpziL43SA1bLfivdD">签约打款</h4><p data-page-node-id="33Xz2RTnCAHb4z3dik7rNO">对公签约/在线支付，额度与通道条款写进合同。</p></div>
+      <div class="step" data-page-node-id="5uDz6GyC73ZAFqlqcjT0Ws"><div class="n" data-page-node-id="6WhnzgxJPowDUfYGvdZBzo">03</div><h4 data-page-node-id="r5MPJKzLJDNhEbBI2KQ5Wn">开通对接</h4><p data-page-node-id="8JrMQyV5ZaBHFTtB74sBFV">发放 API Key 与接入文档，兼容 OpenAI 协议，10 分钟接入。</p></div>
+      <div class="step" data-page-node-id="9GxZdCeMJlmPgTNtcsVQFD"><div class="n" data-page-node-id="Z9UHbU3LkRp0DDYQmPoziP">04</div><h4 data-page-node-id="OGh4PY23xk9DauICunjc9p">用量结算</h4><p data-page-node-id="4noJtT92zZkOqWjCBmK0R8">后台实时看用量，月结对账单，代理佣金 T+1 结算。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0" data-page-node-id="kfj5U9Ce3EYghiEjwdK9De">
+  <div class="wrap" data-page-node-id="PoG5U2LcRznksGH6yBwtdh">
+    <span class="tag" data-page-node-id="TSJDdjvwhB7V1aJndAGpFD">FAQ</span>
+    <h2 class="sec" data-page-node-id="SFDEbBBVjaYASDxeKeqNPl">常见问题</h2>
+    <div class="faq" data-page-node-id="btFSyvucZPdhGCjNd0Cwlx">
+      <details data-page-node-id="VdLz667AJjwQwUslWXpehR"><summary data-page-node-id="JfZRPPijUnYMoilBnLOvNT">Token 额度是真的吗？会不会跑路？</summary><p data-page-node-id="28EmZMKR2vN3FfDbEoChwD">全部额度来自运营商/云厂商官方渠道，支持先小额试用验证再放大采购；企业客户走对公签约，合同约束交付。</p></details>
+      <details data-page-node-id="XHbQ4OjujNJvyPcLvJRJof"><summary data-page-node-id="NK2qkCAfgjL1oHd6jLtLtx">支持哪些模型？</summary><p data-page-node-id="hIwDSdXiCmDlrZ21ALAhrk">DeepSeek、豆包、通义千问、智谱 GLM、Kimi、混元等国产主流模型，以及海外主流模型合规通道，统一 OpenAI 兼容协议接入。</p></details>
+      <details data-page-node-id="hkFqGUW4ElFpOSs1UTCLQD"><summary data-page-node-id="u7DunqEyLNO4Ajdn4SZ9MZ">做代理需要囤货吗？</summary><p data-page-node-id="6LCtBB8iOTRCBDv3prdaa0">不需要。平台统一供货与交付，代理只负责获客与客户服务，差价/佣金由系统按订单自动结算。</p></details>
+      <details data-page-node-id="QiHmoOf3lZFuzVBJ5RZj6h"><summary data-page-node-id="3oIDAiNWLrZCB29DZksOAM">怎么计费？开票吗？</summary><p data-page-node-id="DMI2red7fBqStOHHftBXUG">按百万 tokens 计费，支持包量、包月与后付费；对公采购可开增值税专用发票。</p></details>
+      <details data-page-node-id="Bkb9MmXAozzKVqnULT5uHb"><summary data-page-node-id="3WDa3wMN5XloZK3bAzaiht">和直接找官方买有什么区别？</summary><p data-page-node-id="SjPxc2o7uo65LbbcUo50Xq">源头聚合比价 + 批量折扣 + 一站式多模型接入，省去逐家开户与充值，价格通常低于官方牌价 20%~40%。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA band -->
+<div class="band" data-page-node-id="N5vlLfQwcbVqDaWthJGsSo">
+  <div class="wrap" data-page-node-id="HdEGKIAsIleorSPJQISwct">
+    <h3 data-page-node-id="yLE2GXp0NESm99mBsRC7aN">今天加微信，明天就能用上源头价的 Token</h3>
+    <div style="display:flex;gap:12px;flex-wrap:wrap" data-page-node-id="Z4aUMHfig6jyp7PXJECAG2">
+      <button class="btn btn-p" onclick="openInquiry('批发采购')" data-page-node-id="Ab9C8v6HltD9zsM2QuCwwJ">采购询价</button>
+      <button class="btn btn-g" onclick="openInquiry('申请成为代理')" data-page-node-id="s40DjxBN0NSrmP179GT0Lt">申请代理</button>
+    </div>
+  </div>
+</div>
+
+<footer data-page-node-id="UXd5v1XSNP4y5Orl2BkhAc">
+  <div class="wrap" data-page-node-id="u5GImvFo20mJ5vUPfoNwcO">
+    <div data-page-node-id="j10Rk25YtvGDPAGXLHCAeK">© 2026 TokentHub 词元购销 · Token Factory Open</div>
+    <div data-page-node-id="KT8jN979WobXDmhonJpF0X">商务合作：微信 TokentHub-001 ｜ 邮箱 sales@tokenthub.cn</div>
+  </div>
+  <div class="wrap" data-page-node-id="kC0cj2Ns3HEB2UuAeatZFb"><p class="risk" data-page-node-id="lWMCRO7eHHUSrGyVC6HDb5">风险提示：本站交易标的为 AI 大模型 API 调用额度（词元），非虚拟货币，非金融产品，不构成任何投资建议。</p></div>
+</footer>
+
+<!-- 询价弹层 -->
+<div class="mask" id="mask" hidden data-page-node-id="PSm3ipOlMnbU1IVNRx2ICb">
+  <div class="modal" data-page-node-id="1ZBfoMoeJO8ZPTIY1GFitG">
+    <h3 id="mTitle" data-page-node-id="L1czYO1UMEd7adpCD9DRa9">在线询价</h3>
+    <div class="m-sub" id="mSub" data-page-node-id="SqFjisoPPiVLZxyNDUzlP1">留下需求，30 分钟内回复源头报价。</div>
+    <input id="fName" placeholder="您的称呼" data-page-node-id="n5dL1WPHKpztu28mFWxUUr">
+    <input id="fPhone" placeholder="微信 / 手机号" data-page-node-id="3O2Cco97I2sabF2a7enztD">
+    <select id="fType" data-page-node-id="KhP3apLtitjA5UDhA6Bgcv">
+      <option data-page-node-id="iVZi9AGMM2x8u519yBpgaC">批发采购</option>
+      <option data-page-node-id="zLQgleWpGeIcFNEGn1276S">申请成为代理</option>
+      <option data-page-node-id="K9rapFqsgwrHMKGnSsbaqy">在线咨询</option>
+    </select>
+    <textarea id="fNote" rows="3" placeholder="月用量 / 想用的模型（如：DeepSeek 每月 50 亿 tokens）"></textarea>
+    <div class="acts" data-page-node-id="XaRERzEuoa7uX6ZunoUvmD">
+      <button class="btn btn-o" onclick="closeInquiry()" data-page-node-id="n7jHd3quBpPx34PdWGZGis">取消</button>
+      <button class="btn btn-p" onclick="submitInquiry()" data-page-node-id="28OHLqjbntS836GzAKyd1x">提交</button>
+    </div>
+    <div class="ok-msg" id="okMsg" hidden data-page-node-id="BvVzxrxgWHdFAOMC6Vm8Yn">✓ 已收到！demo 演示环境，正式版将接入客服系统。你也可以直接联系微信 TokentHub-001。</div>
+  </div>
+</div>
+
+<script>
+// ---------- 行情 ticker ----------
+var MODELS=[
+  {n:'DeepSeek-V3.2',p:4.5},{n:'DeepSeek-R2',p:12.0},{n:'豆包 Seed 2.1 Pro',p:8.0},
+  {n:'通义 Qwen-Max',p:9.6},{n:'智谱 GLM-5',p:7.2},{n:'Kimi K2',p:10.0},
+  {n:'混元 Turbo',p:6.5},{n:'GPT-5 mini',p:18.0},{n:'Claude Sonnet',p:26.0}
+];
+function buildTicker(){
+  var html='';
+  for(var loop=0;loop<2;loop++){
+    MODELS.forEach(function(m){
+      var d=(Math.random()-0.42)*0.06;
+      var np=m.p*(1+d);
+      var up=d>=0;
+      html+='<div class="tk"><span class="name">'+m.n+'</span>'+
+        '<span class="mono">¥'+np.toFixed(2)+'<small style="color:var(--dim)">/百万</small></span>'+
+        '<span class="mono '+(up?'up':'dn')+'">'+(up?'▲':'▼')+' '+Math.abs(d*100).toFixed(2)+'%</span></div>';
+    });
+  }
+  document.getElementById('tickerTrack').innerHTML=html;
+}
+buildTicker();
+
+// ---------- 收益计算 ----------
+function fmt(n){return n>=10000?(n/10000).toFixed(2)+' 万':Math.round(n).toLocaleString()}
+function calc(){
+  var vol=document.getElementById('vol').value; // 1~20 -> 10亿~200亿
+  var yi=vol*10; // 亿 tokens/月
+  var price=6.8; // 元/百万
+  var gmv=yi*1000/100*price; // 亿->百万 * price
+  var rate=parseFloat(document.getElementById('tierSel').value);
+  document.getElementById('volVal').textContent=yi+' 亿 tokens';
+  document.getElementById('outGmv').textContent='¥'+fmt(gmv);
+  document.getElementById('outCom').textContent='¥'+fmt(gmv*rate);
+  document.getElementById('outYear').textContent='¥'+fmt(gmv*rate*12);
+}
+calc();
+
+// ---------- 询价弹层 ----------
+function openInquiry(type){
+  document.getElementById('mask').hidden=false;
+  document.getElementById('mTitle').textContent=type;
+  document.getElementById('okMsg').hidden=true;
+  if(type==='申请成为代理'){document.getElementById('fType').value='申请成为代理';}
+  else if(type.indexOf('·')>-1){document.getElementById('fType').value='批发采购';document.getElementById('fNote').value='咨询套餐：'+type;}
+  else{document.getElementById('fType').value=type;}
+}
+function closeInquiry(){document.getElementById('mask').hidden=true}
+function submitInquiry(){
+  var name=document.getElementById('fName').value.trim();
+  var phone=document.getElementById('fPhone').value.trim();
+  if(!name||!phone){alert('请填写称呼和联系方式');return}
+  var list=JSON.parse(localStorage.getItem('tk_orders')||'[]');
+  list.push({name:name,phone:phone,type:document.getElementById('fType').value,
+    note:document.getElementById('fNote').value,time:new Date().toLocaleString()});
+  localStorage.setItem('tk_orders',JSON.stringify(list));
+  document.getElementById('okMsg').hidden=false;
+  setTimeout(closeInquiry,2200);
+}
+document.getElementById('mask').addEventListener('click',function(e){if(e.target===this)closeInquiry()});
+</script>
+</body>
+</html>
